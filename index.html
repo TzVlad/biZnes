@@ -1,175 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lviv Touristic Agency - Your premium travel partner in Lviv. Discover exclusive European and local tours.">
-    <title>Lviv Touristic Agency | Discover The World</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lviv Touristic Agency</title>
+
+    <!-- Bootstrap 3.4.1 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Мінімальні Inline-стилі для полірування компонентів -->
+    <style>
+        body { padding-top: 50px; } /* Компенсація fixed-top navbar */
+        
+        .jumbotron {
+            background: url('https://images.unsplash.com/photo-1549557434-6017e4bb00cc?auto=format&fit=crop&q=80&w=2000') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin-bottom: 0;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        .jumbotron h1 { font-weight: bold; }
+        
+        .tours-section { 
+            padding: 60px 0; 
+            background-color: #f9f9f9; 
+        }
+        .tour-thumbnail {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .tour-thumbnail img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            margin-bottom: 15px; 
+        }
+        
+        .reviews-section { padding: 60px 0; }
+        
+        .contact-section { padding: 60px 0; background-color: #f9f9f9; }
+        
+        /* Адаптивний контейнер для Google Maps iframe */
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* Співвідношення сторін 16:9 */
+            position: relative;
+            height: 0;
+        }
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 30px 0;
+        }
+    </style>
 </head>
 <body>
-    <!-- Animated Background Blobs -->
-    <div class="blob blob-1" aria-hidden="true"></div>
-    <div class="blob blob-2" aria-hidden="true"></div>
-    <div class="blob blob-3" aria-hidden="true"></div>
 
-    <header class="header-nav">
-        <nav class="navbar glass-panel" aria-label="Main Navigation">
-            <div class="logo">Lviv <span>Touristic</span></div>
-            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
-            <label for="menu-toggle" class="hamburger">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </label>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#destinations">Destinations</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero parallax" aria-labelledby="hero-title">
-            <div class="hero-content glass-panel">
-                <h1 id="hero-title">Experience the Magic of Travel</h1>
-                <p>Premium travel agency based in Lviv. Let us craft your perfect getaway.</p>
-                <a href="#destinations" class="btn-primary">Explore Destinations</a>
+    <!-- Навігаційне меню (Strict Bootstrap 3.4.1) -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Відкрити навігацію</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Lviv Touristic</a>
             </div>
-            <div class="hero-overlay" aria-hidden="true"></div>
-        </section>
+            
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#tours">Послуги</a></li>
+                    <li><a href="#reviews">Відгуки</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <section id="about" class="about-section" aria-labelledby="about-title">
-            <div class="container glass-card about-grid">
-                <div class="about-text">
-                    <h2 id="about-title">Redefining Travel</h2>
-                    <p>At Lviv Touristic Agency, we believe that travel is more than just visiting a place; it's about the experience, the culture, and the memories you create. We are a registered travel agency dedicated to providing top-tier, personalized travel packages for our clients.</p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <strong>10+</strong>
-                            <span>Years Exp.</span>
-                        </div>
-                        <div class="stat-item">
-                            <strong>5K+</strong>
-                            <span>Happy Clients</span>
-                        </div>
-                        <div class="stat-item">
-                            <strong>50+</strong>
-                            <span>Destinations</span>
-                        </div>
+    <!-- Привітання (.jumbotron) -->
+    <div id="home" class="jumbotron text-center">
+        <div class="container">
+            <h1>Lviv Touristic Agency</h1>
+            <p>Ваша незабутня подорож починається тут. Довірте свій відпочинок професіоналам.</p>
+            <p><a class="btn btn-primary btn-lg" href="#tours" role="button">Ознайомитись з турами &raquo;</a></p>
+        </div>
+    </div>
+
+    <!-- 3-колонкова сітка турів/послуг -->
+    <section id="tours" class="tours-section">
+        <div class="container">
+            <h2 class="text-center">Наші Популярні Напрямки</h2>
+            <br>
+            <div class="row">
+                <!-- Використовується виключно .col-sm-4 -->
+                <div class="col-sm-4">
+                    <div class="tour-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1549557434-6017e4bb00cc?auto=format&fit=crop&q=80&w=800" alt="Львів">
+                        <h3>Історичний Львів</h3>
+                        <p>Дослідіть старовинні вулички, таємничі підземелля та багату архітектуру старого міста.</p>
+                        <a href="#contact" class="btn btn-default">Детальніше</a>
                     </div>
                 </div>
-                <div class="about-image-wrapper">
-                    <img class="about-image" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800" alt="Beautiful European landscape showcasing our travel destinations">
-                </div>
-            </div>
-        </section>
-
-        <section id="destinations" class="tours-section parallax" aria-labelledby="destinations-title">
-            <div class="container">
-                <h2 id="destinations-title" class="section-title">Exclusive Destinations</h2>
-                <div class="tours-grid">
-                    <article class="tour-card glass-card">
-                        <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1549557434-6017e4bb00cc?auto=format&fit=crop&q=80&w=800" alt="Historic cobblestone street in Lviv">
-                        </div>
-                        <div class="card-content">
-                            <h3>Historic Lviv</h3>
-                            <p>Explore the cobblestone streets and rich architecture of Lviv's old town.</p>
-                            <a href="#contact" class="btn-secondary">Book Now</a>
-                        </div>
-                    </article>
-                    <article class="tour-card glass-card">
-                        <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1563214532-62ff8e2832f9?auto=format&fit=crop&q=80&w=800" alt="Scenic view of the Carpathian Mountains">
-                        </div>
-                        <div class="card-content">
-                            <h3>Carpathian Escape</h3>
-                            <p>Breathe in the fresh mountain air of the Ukrainian highlands.</p>
-                            <a href="#contact" class="btn-secondary">Book Now</a>
-                        </div>
-                    </article>
-                    <article class="tour-card glass-card">
-                        <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800" alt="Classic European city scenery">
-                        </div>
-                        <div class="card-content">
-                            <h3>European Grand Tour</h3>
-                            <p>Travel across Europe in style and absolute comfort.</p>
-                            <a href="#contact" class="btn-secondary">Book Now</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq" class="faq-section" aria-labelledby="faq-title">
-            <div class="container">
-                <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
-                <div class="faq-accordion glass-card">
-                    <details>
-                        <summary>Where are you located?</summary>
-                        <p>We are centrally located in Lviv. Our physical office address is Eugen Mlanyuka 4 st. You are welcome to visit us during business hours!</p>
-                    </details>
-                    <details>
-                        <summary>Are you a registered travel agency?</summary>
-                        <p>Yes, Lviv Touristic Agency is fully registered and licensed to operate in the travel and tourism sector.</p>
-                    </details>
-                    <details>
-                        <summary>Do you offer customized tours?</summary>
-                        <p>Absolutely. We specialize in crafting premium, tailor-made itineraries that perfectly fit your schedule and preferences.</p>
-                    </details>
-                    <details>
-                        <summary>What payment methods do you accept?</summary>
-                        <p>We accept all major credit cards, bank transfers, and local payment systems.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section" aria-labelledby="contact-title">
-            <div class="container">
-                <h2 id="contact-title" class="section-title">Get in Touch</h2>
-                <div class="contact-wrapper">
-                    <div class="contact-info glass-card">
-                        <h3>Visit Us</h3>
-                        <address>
-                            <p><strong>Lviv Touristic Agency</strong></p>
-                            <p>Eugen Mlanyuka 4 st.</p>
-                            <p>Lviv, Ukraine</p>
-                            <div class="info-divider" aria-hidden="true"></div>
-                            <p>Email: <a href="mailto:contact@lvivtouristic.com">contact@lvivtouristic.com</a></p>
-                            <p>Phone: <a href="tel:+380669268522">+380 66 926 85 22</a></p>
-                        </address>
+                <div class="col-sm-4">
+                    <div class="tour-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1563214532-62ff8e2832f9?auto=format&fit=crop&q=80&w=800" alt="Карпати">
+                        <h3>Магія Карпат</h3>
+                        <p>Вдихніть свіже гірське повітря та насолодіться неймовірними краєвидами українських гір.</p>
+                        <a href="#contact" class="btn btn-default">Детальніше</a>
                     </div>
-                    <form class="contact-form glass-card" action="#">
-                        <div class="input-group">
-                            <input type="text" id="name" placeholder=" " required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" id="email" placeholder=" " required>
-                            <label for="email">Your Email</label>
-                        </div>
-                        <div class="input-group">
-                            <textarea id="message" rows="5" placeholder=" " required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
+                </div>
+                <div class="col-sm-4">
+                    <div class="tour-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800" alt="Європа">
+                        <h3>Тур Європою</h3>
+                        <p>Подорожуйте найкрасивішими містами Європи з максимальним комфортом та преміум сервісом.</p>
+                        <a href="#contact" class="btn btn-default">Детальніше</a>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Lviv Touristic Agency. All Rights Reserved.</p>
+    <!-- Секція відгуків -->
+    <section id="reviews" class="reviews-section">
+        <div class="container text-center">
+            <h2>Що про нас кажуть</h2>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <blockquote>
+                        <p>Неймовірний сервіс! Екскурсія Львовом перевершила всі наші очікування. Дуже рекомендую.</p>
+                        <footer>Олена М.</footer>
+                    </blockquote>
+                </div>
+                <div class="col-sm-6">
+                    <blockquote>
+                        <p>Поїздка в Карпати була організована бездоганно. Дякуємо Lviv Touristic Agency за чудовий відпочинок!</p>
+                        <footer>Іван К.</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакти та Карта -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="text-center">Зв'яжіться з нами</h2>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>Наші контакти</h3>
+                    <address>
+                        <strong>Lviv Touristic Agency</strong><br>
+                        вул. Євгена Маланюка, 4<br>
+                        Львів, Україна<br><br>
+                        <abbr title="Телефон">Тел:</abbr> <a href="tel:+380669268522">+380 66 926 85 22</a><br>
+                        <abbr title="Електронна пошта">Email:</abbr> <a href="mailto:contact@lvivtouristic.com">contact@lvivtouristic.com</a>
+                    </address>
+                </div>
+                <div class="col-sm-6">
+                    <!-- Google Maps Embed в адаптивному контейнері -->
+                    <div class="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.1813470725516!2d24.0306352!3d49.8390772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add6e0708f5f7%3A0xc0c8eef2f534fa25!2z0LLRg9C70LjRhtGPINCC0LLQsNGA0LTQvtCy0LA!5e0!3m2!1suk!2sua!4v1700000000000!5m2!1suk!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </section>
+
+    <!-- Підвал -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2026 Lviv Touristic Agency. Всі права захищено.</p>
+        </div>
     </footer>
+
+    <!-- jQuery 3.6.1 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- Bootstrap 3.4.1 JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </body>
 </html>
